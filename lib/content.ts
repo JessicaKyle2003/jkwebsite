@@ -1,19 +1,11 @@
-// Edit this file to personalize the site. Anything in [brackets] is a placeholder.
-
 export const profile = {
   name: 'Jessica Kyle',
   initials: 'JK',
   title: 'Cybersecurity Professional',
-  tagline: 'GRC & Risk · Cyber Psychology & Human Factors · Security Operations',
+  tagline: 'GRC & Cybersecurity Risk Management · Cyber Psychology & Human Factors · Security Operations (SOC)',
   summary:
-    'I approach security as a system of policies, people, and technology. I connect governance and risk frameworks to the human behaviors that make them work, and to the operational controls that detect and respond when they fail.',
+    'I approach cybersecurity as a system of policies, people, and technology, with a focus across GRC and cybersecurity risk management, cyber psychology and human factors, and security operations.',
   location: 'Benton Harbor, Michigan',
-  availability: 'Open to cybersecurity opportunities',
-  email: 'you@example.com',
-  linkedin: 'https://www.linkedin.com/in/your-profile',
-  github: 'https://github.com/your-username',
-  // Put your résumé PDF in the /public folder and set its filename here, e.g. 'resume.pdf'.
-  // Leave empty to show a "Request résumé" email button instead.
   resumeFile: '',
 }
 
@@ -31,43 +23,25 @@ export const pillars: {
     id: 'grc',
     label: 'GRC & Cybersecurity Risk Management',
     short: 'GRC & Risk',
-    question: 'What could go wrong, and how much does it matter?',
-    description:
-      'Translating business objectives into measurable security requirements: identifying risk, mapping controls to frameworks, governing emerging AI systems, and communicating priorities to decision-makers.',
-    focus: [
-      'Risk assessment & risk registers',
-      'Control mapping to NIST CSF & ISO/IEC 27001',
-      'AI governance & ISO/IEC 42001',
-      'Policy writing & compliance readiness',
-    ],
+    question: 'How do policies and governance turn risk into action?',
+    description: 'A focus on privacy, information security, compliance, AI governance, and human-centered risk.',
+    focus: ['ISO/IEC 27001', 'ISO/IEC 42001 AI Governance', 'PCI DSS', 'NIST AI RMF', 'SOC 2'],
   },
   {
     id: 'human',
     label: 'Cyber Psychology & Human Factors',
     short: 'Human Factors',
-    question: 'Why do people click, share, or bypass controls?',
-    description:
-      'Applying psychology to security: understanding social engineering, decision-making under pressure, and security culture, then designing awareness programs that change behavior rather than just checking a box.',
-    focus: [
-      'Social engineering & phishing analysis',
-      'Security awareness program design',
-      'Security culture measurement',
-      'Usable security principles',
-    ],
+    question: 'Why do people trust, click, share, or bypass controls?',
+    description: 'A focus on the psychological drivers behind social engineering, disclosure, trust, awareness, and behavior change.',
+    focus: ['Security Awareness', 'Social Engineering', 'Human Factors', 'Behavioral Research'],
   },
   {
     id: 'secops',
     label: 'Security Operations (SOC)',
     short: 'SOC',
-    question: 'How do we detect it, contain it, and learn from it?',
-    description:
-      'Monitoring, detection, and response: analyzing logs and alerts, mapping adversary behavior to MITRE ATT&CK, and following structured incident response processes.',
-    focus: [
-      'Log analysis & SIEM fundamentals',
-      'Detection mapped to MITRE ATT&CK',
-      'Incident response playbooks',
-      'Alert triage & escalation',
-    ],
+    question: 'How do operational controls support organizational security?',
+    description: 'A focused security operations portfolio grounded in readiness assessment and control evidence.',
+    focus: ['SOC 2 Type II Readiness', 'Trust Services Criteria', 'Common Criteria CC1–CC9'],
   },
 ]
 
@@ -76,148 +50,119 @@ export type Project = {
   pillar: PillarId
   type: string
   summary: string
-  approach: string[]
-  deliverables: string[]
-  tools: string[]
-  caseStudyUrl?: string
-  repoUrl?: string
+  approach?: string[]
+  deliverables?: string[]
+  tools?: string[]
 }
 
-// Sample project entries. Replace them with your own work, and add caseStudyUrl / repoUrl to show links.
 export const projects: Project[] = [
   {
-    title: 'NIST CSF 2.0 Gap Assessment',
+    title: 'ISO/IEC 27001:2022 ISMS - NexaTech Solutions',
     pillar: 'grc',
-    type: 'Simulated assessment · Fictional small healthcare clinic',
-    summary:
-      'Evaluated a fictional 40-person clinic against the six NIST CSF 2.0 functions to identify control gaps and produce a prioritized remediation roadmap.',
-    approach: [
-      'Defined scope, assets, and data flows for the scenario organization',
-      'Scored current vs. target maturity for each CSF category',
-      'Rated risks by likelihood and impact in a risk register',
-    ],
-    deliverables: ['Risk register', 'Gap analysis matrix', 'Executive summary'],
-    tools: ['NIST CSF 2.0', 'Risk register', 'Excel'],
+    type: 'Information Security Management System project',
+    summary: 'Built a complete Information Security Management System (ISMS) for a 120-person software company. Conducted a 5x5 risk assessment, mapped 20+ Annex A controls, performed an internal audit that identified three control failures, and produced a Statement of Applicability (SoA).',
   },
   {
-    title: 'AI Governance Readiness Review',
+    title: 'Privacy Policy, Information Security Policy & Security Awareness Training Program',
     pillar: 'grc',
-    type: 'Simulated assessment · ISO/IEC 42001',
-    summary:
-      'Reviewed a fictional company’s use of AI tools against ISO/IEC 42001 management system requirements to outline governance gaps and next steps.',
-    approach: [
-      'Inventoried AI use cases and the data each one touched',
-      'Mapped existing practices to ISO/IEC 42001 clauses',
-      'Drafted an AI acceptable use policy and risk criteria',
-    ],
-    deliverables: ['AI use-case inventory', 'Clause gap checklist', 'AI acceptable use policy'],
-    tools: ['ISO/IEC 42001', 'AI governance', 'Excel'],
+    type: 'GRC documentation project',
+    summary: 'Designed and implemented three enterprise-level GRC foundational documents from the ground up, including a Privacy Policy, Information Security Policy, and Security Awareness Training Program. The project demonstrates initiative, regulatory awareness, and security documentation expertise.',
   },
   {
-    title: 'Phishing Awareness Program Design',
+    title: 'PCI DSS v4.0 Compliance Assessment',
+    pillar: 'grc',
+    type: 'Assessment for a fictional healthcare organization',
+    summary: 'Conducted a comprehensive PCI DSS v4.0 compliance assessment for a fictional healthcare organization, evaluating all 12 requirements, identifying critical gaps, and developing a prioritized remediation roadmap to support achieving compliance.',
+  },
+  {
+    title: 'NIST AI Risk Management Framework (AI RMF) - NexaHealth',
+    pillar: 'grc',
+    type: 'AI governance and risk project',
+    summary: 'Applied the GOVERN, MAP, MEASURE, and MANAGE functions to a healthcare AI diagnostics system. Identified eight AI-specific risks, measured a 7.2% demographic accuracy gap, and built a risk treatment plan that blocks deployment until the identified bias is remediated.',
+  },
+  {
+    title: 'Dark Patterns & Consent',
+    pillar: 'grc',
+    type: 'Applied Research Project',
+    summary: 'Investigated how dark patterns and cognitive biases can influence healthcare privacy decisions. Analyzed consent interfaces, default settings, friction, and information asymmetry to identify human-centered privacy and regulatory risks involving sensitive health data.',
+  },
+  {
+    title: 'AI Companion Attachment and Disclosure Risk',
     pillar: 'human',
-    type: 'Lab simulation · Training design',
-    summary:
-      'Designed a phishing simulation and follow-up training plan in an isolated lab, with a measurement framework focused on reporting rate rather than click rate alone.',
-    approach: [
-      'Built lure templates based on common social engineering principles',
-      'Ran simulations against test accounts in a sandboxed environment',
-      'Defined metrics: click rate, report rate, and time-to-report',
-    ],
-    deliverables: ['Campaign plan', 'Training module outline', 'Metrics dashboard mockup'],
-    tools: ['GoPhish', 'Influence principles', 'Lab VMs'],
+    type: 'Cyber psychology research project',
+    summary: 'Researched how repeated interactions with AI companions may influence emotional trust, attachment, and willingness to disclose information. Analyzed psychological drivers of AI-enabled oversharing and documented organizational data exposure incidents. Developed cybersecurity-focused recommendations addressing AI disclosure risk, including behavioral interventions, user awareness strategies, and organizational controls designed to interrupt sensitive data disclosures at the point of interaction.',
   },
   {
-    title: 'Security Culture Survey Instrument',
+    title: 'Deepfake Trust & Remote Work: Synthetic Media Security Psychology',
     pillar: 'human',
-    type: 'Research project · Survey design',
-    summary:
-      'Created a survey to measure security attitudes and behaviors across departments, grounded in behavioral models of security compliance.',
-    approach: [
-      'Reviewed literature on security behavior and compliance',
-      'Developed Likert-scale items across attitude, norm, and behavior dimensions',
-      'Outlined an analysis plan to identify high-risk behavior patterns',
-    ],
-    deliverables: ['Survey instrument', 'Analysis plan', 'Literature summary'],
-    tools: ['Protection Motivation Theory', 'Google Forms', 'Excel'],
+    type: 'Applied Research Project · Real-world case and fictional scenario',
+    summary: 'Built a five-part psychological framework examining why deepfake-enabled fraud can succeed in remote work settings. The framework addresses truth-default theory, modality trust heuristics, authority and urgency amplification, divided attention in remote work, and overconfidence associated with invoice and face recognition. Analyzed the real $25.6 million ARUP deepfake CFO fraud case and applied the findings to a fictional organizational scenario, producing a stage-by-stage manipulation analysis and verification-focused security recommendations.',
   },
   {
-    title: 'Home SOC Detection Lab',
-    pillar: 'secops',
-    type: 'Hands-on lab · Virtualized environment',
-    summary:
-      'Built a virtual lab with a Windows domain, endpoint telemetry, and a SIEM to generate, collect, and investigate simulated attack activity.',
-    approach: [
-      'Deployed Active Directory, Sysmon, and log forwarding',
-      'Simulated techniques with Atomic Red Team',
-      'Wrote and tuned detections mapped to MITRE ATT&CK',
-    ],
-    deliverables: ['Lab architecture diagram', 'Detection rules', 'Investigation write-ups'],
-    tools: ['Wazuh', 'Sysmon', 'Atomic Red Team', 'MITRE ATT&CK'],
+    title: 'Social Media & Cybersecurity Behavioral Research Report',
+    pillar: 'human',
+    type: 'Applied Research Project',
+    summary: 'Analyzed five behavioral drivers of social media security risk: oversharing, social proof, password reuse, convenience, and warning fatigue. Translated each behavioral driver into specific individual and organizational risk-reduction recommendations.',
   },
   {
-    title: 'Ransomware Incident Response Playbook',
+    title: 'Cybersecurity Awareness Campaign: "Why People Click"',
+    pillar: 'human',
+    type: 'Applied Research Project',
+    summary: 'Designed a behavior-based cybersecurity awareness program including a training presentation, one-page infographic, facilitator model, and matched pre- and post-training knowledge questionnaires. Built a four-week rollout plan with measurable indicators.',
+  },
+  {
+    title: 'Vibe Coding & the Trust Gap: AI-Generated Code Security Psychology',
+    pillar: 'human',
+    type: 'Applied Research Project · Fictional healthcare scenario',
+    summary: 'Examined developer overtrust in AI-generated code through the fluency heuristic, automation bias, and diffusion of responsibility. Applied a behavioral framework to a fictional healthcare data-exposure scenario and connected the psychological pattern to a realistic security consequence.',
+  },
+  {
+    title: 'Phishing & Social Engineering Behavioral Study',
+    pillar: 'human',
+    type: 'Applied Research Project · Fictional healthcare organization',
+    summary: 'Developed a seven-principle behavioral framework covering urgency, authority, fear, curiosity, familiarity, reward, and social pressure. Designed a five-message simulated phishing campaign for a fictional healthcare organization and mapped each message to the psychological principle and cognitive mechanism being exploited.',
+  },
+  {
+    title: 'Surveillance Awareness and Behavior Change',
+    pillar: 'human',
+    type: 'Cyber Psychology Portfolio Project',
+    summary: 'Examined how awareness of digital monitoring can affect employee behavior and communication. Applied the chilling effect and panopticon theories to assess self-censorship, insider-risk behavior, and the limitations of surveillance-based security controls.',
+  },
+  {
+    title: 'SOC 2 Type II Readiness Assessment - CloudVault SaaS',
     pillar: 'secops',
-    type: 'Tabletop exercise · Playbook',
-    summary:
-      'Developed a ransomware response playbook following the incident handling lifecycle, and wrote a tabletop exercise scenario to test it.',
-    approach: [
-      'Mapped detection, containment, eradication, and recovery steps',
-      'Defined roles, escalation paths, and communication templates',
-      'Wrote a tabletop scenario with injects and discussion questions',
-    ],
-    deliverables: ['IR playbook', 'Tabletop scenario', 'After-action report template'],
-    tools: ['MITRE ATT&CK', 'Tabletop exercise'],
+    type: 'Simulated Project',
+    summary: 'Scoped four Trust Services Criteria and mapped all nine Common Criteria controls (CC1-CC9). Built a 12-month audit evidence package across eight categories and documented procedures within a simulated SOC 2 Type II readiness assessment.',
   },
 ]
 
 export const skills: { pillar: PillarId; items: string[] }[] = [
-  {
-    pillar: 'grc',
-    items: [
-      'AI Governance',
-      'ISO/IEC 42001',
-      'NIST CSF 2.0',
-      'ISO/IEC 27001',
-      'CIS Controls',
-      'HIPAA compliance',
-      'Risk registers',
-      'Policy writing',
-    ],
-  },
-  {
-    pillar: 'human',
-    items: [
-      'Cyber psychology',
-      'Social engineering',
-      'Phishing analysis',
-      'Awareness training',
-      'Survey design',
-      'Behavioral models',
-      'Security communication',
-    ],
-  },
-  {
-    pillar: 'secops',
-    items: [
-      'SOC operations',
-      'SIEM fundamentals',
-      'Log analysis',
-      'Alert triage',
-      'MITRE ATT&CK',
-      'Incident response',
-      'Linux & Windows',
-    ],
-  },
+  { pillar: 'grc', items: ['GRC & Cybersecurity Risk Management', 'ISO/IEC 27001', 'ISO/IEC 42001 AI Governance', 'PCI DSS', 'NIST AI Risk Management Framework (AI RMF)', 'SOC 2', 'Privacy & Information Security', 'AI Governance'] },
+  { pillar: 'human', items: ['Cyber Psychology & Human Factors', 'Security Awareness', 'Social Engineering'] },
+  { pillar: 'secops', items: ['Security Operations / SOC'] },
 ]
 
 export const education: { degree: string; field: string; status: 'Completed' | 'In Progress' }[] = [
-  { degree: 'Bachelor’s Degree', field: 'Psychology', status: 'In Progress' },
-  { degree: 'Associate’s Degree', field: 'Cybersecurity', status: 'Completed' },
+  { degree: "Associate's", field: 'Cybersecurity', status: 'Completed' },
+  { degree: "Bachelor's", field: 'Psychology', status: 'In Progress' },
 ]
 
 export const certifications: { name: string; year: string; pillar: PillarId }[] = [
+  { name: 'Security Operations Center Specialist (SOC)', year: '2023', pillar: 'secops' },
   { name: 'ISO/IEC 42001 AI Governance', year: '2026', pillar: 'grc' },
   { name: 'HIPAA Compliance Training Program', year: '2026', pillar: 'grc' },
-  { name: 'Security Operations Center Specialist (SOC)', year: '2023', pillar: 'secops' },
 ]
+
+export const contactLocation = 'Benton Harbor, Michigan'
+export const resumeRequestEmail = ''
+export const socialLinks: { label: string; href: string }[] = []
+
+export const profileLinks = { contactLocation, resumeRequestEmail, socialLinks }
+
+export const profileEmail = ''
+export const profileLinkedin = ''
+export const profileGithub = ''
+
+export const profileMeta = profileLinks
+
+export const siteNote = 'Projects are lab, simulated, applied research, portfolio, or academic work as labeled.'
