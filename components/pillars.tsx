@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { Activity, Brain, Scale, type LucideIcon } from 'lucide-react'
-import { pillars, type PillarId } from '@/lib/content'
+import { pillars, projects, type PillarId } from '@/lib/content'
 import { pillarStyles } from '@/lib/pillar-styles'
 import { SectionHeading } from './section-heading'
 
@@ -46,14 +46,26 @@ export function Pillars() {
                   <p className="mt-4 leading-relaxed text-muted-foreground">{pillar.description}</p>
                 </div>
 
-                <ul className="flex flex-col gap-3 self-center" aria-label={`${pillar.short} focus areas`}>
-                  {pillar.focus.map((item) => (
-                    <li key={item} className="flex items-center gap-3 border-b border-border/60 pb-3 text-sm last:border-0">
-                      <span className={`size-1.5 shrink-0 rounded-full ${style.bg}`} aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-col gap-6 self-center">
+                  <ul className="flex flex-col gap-3" aria-label={`${pillar.short} focus areas`}>
+                    {pillar.focus.map((item) => (
+                      <li key={item} className="flex items-center gap-3 border-b border-border/60 pb-3 text-sm last:border-0">
+                        <span className={`size-1.5 shrink-0 rounded-full ${style.bg}`} aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <ul className="flex flex-col gap-2 border-t border-border/60 pt-4" aria-label={`${pillar.short} projects`}>
+                    {projects.filter((project) => project.pillar === pillar.id).map((project) => (
+                      <li key={project.title}>
+                        <a href={project.href} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground hover:underline">
+                          {project.title}
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </li>
           )

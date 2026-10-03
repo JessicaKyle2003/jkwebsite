@@ -41,7 +41,7 @@ export function SiteHeader() {
         </nav>
 
         <a
-          href="#resume"
+          href="mailto:hirejessicakyle@gmail.com?subject=R%C3%A9sum%C3%A9%20Request"
           className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2 text-sm font-semibold text-primary-foreground shadow-[0_0_24px_-4px] shadow-primary/60 transition-transform hover:-translate-y-0.5 md:inline-flex"
         >
           <FileText className="size-4" aria-hidden="true" />
@@ -76,7 +76,7 @@ export function SiteHeader() {
             ))}
             <li className="pt-3">
               <a
-                href="#resume"
+                href="mailto:hirejessicakyle@gmail.com?subject=R%C3%A9sum%C3%A9%20Request"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-3 font-semibold text-primary-foreground"
               >

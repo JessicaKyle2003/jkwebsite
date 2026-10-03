@@ -56,7 +56,7 @@ export function Resume() {
               </>
             ) : (
               <a
-                href={`mailto:${profile.email}?subject=${encodeURIComponent('Résumé request')}`}
+                href="mailto:hirejessicakyle@gmail.com?subject=R%C3%A9sum%C3%A9%20Request"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-3.5 font-semibold text-primary-foreground shadow-[0_0_30px_-6px] shadow-primary/70 transition-transform hover:-translate-y-0.5"
               >
                 <Mail className="size-5" aria-hidden="true" />

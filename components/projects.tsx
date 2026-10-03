@@ -84,9 +84,27 @@ export function Projects() {
                   <span className="font-mono text-xs text-muted-foreground">{style.number}</span>
                 </div>
 
-                <h3 className="mt-6 text-xl font-semibold tracking-tight md:text-2xl">{project.title}</h3>
+                <h3 className="mt-6 text-xl font-semibold tracking-tight md:text-2xl">
+                  <a href={project.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {project.title}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </h3>
                 <p className="mt-1 text-sm text-muted-foreground">{project.type}</p>
                 <p className="mt-4 leading-relaxed text-foreground/85">{project.summary}</p>
+
+                {project.documentLinks && (
+                  <ul className="mt-5 flex flex-col gap-2 text-sm text-muted-foreground" aria-label="Project documents">
+                    {project.documentLinks.map((document) => (
+                      <li key={document.label}>
+                        <a href={document.href} target="_blank" rel="noopener noreferrer" className="hover:text-foreground hover:underline">
+                          {document.label}
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 <ul className="mt-5 flex flex-col gap-2 text-sm text-muted-foreground">
                   {(project.approach ?? []).map((step) => (
@@ -103,6 +121,16 @@ export function Projects() {
                 </div>
 
                 <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-6">
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                  >
+                    View on GitHub
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
                   <ul className="flex flex-wrap gap-2" aria-label="Tools and frameworks">
                     {(project.tools ?? []).map((tool) => (
                       <li key={tool} className="rounded-md bg-secondary/70 px-2.5 py-1 font-mono text-xs text-muted-foreground">

@@ -3,7 +3,7 @@ import { profile, profileEmail, profileGithub, profileLinkedin } from '@/lib/con
 import { GithubIcon, LinkedinIcon } from './brand-icons'
 
 const channels = [
-  { label: 'Email', value: profileEmail, href: profileEmail ? `mailto:${profileEmail}` : undefined, icon: Mail },
+  { label: 'Email', value: 'hirejessicakyle@gmail.com', href: 'mailto:hirejessicakyle@gmail.com', icon: Mail },
   { label: 'LinkedIn', value: 'Connect on LinkedIn', href: profileLinkedin, icon: LinkedinIcon },
   { label: 'GitHub', value: 'View repositories', href: profileGithub, icon: GithubIcon },
 ]
