@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-grc: var(--grc);
+  --color-human: var(--human);
+  --color-secops: var(--secops);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: dark;
+  --background: oklch(0.13 0.035 275);
+  --foreground: oklch(0.95 0.012 275);
+  --card: oklch(0.17 0.04 275);
+  --card-foreground: oklch(0.95 0.012 275);
+  --popover: oklch(0.17 0.04 275);
+  --popover-foreground: oklch(0.95 0.012 275);
+  --primary: oklch(0.76 0.12 275);
+  --primary-foreground: oklch(0.15 0.04 275);
+  --secondary: oklch(0.21 0.045 275);
+  --secondary-foreground: oklch(0.95 0.012 275);
+  --muted: oklch(0.21 0.045 275);
+  --muted-foreground: oklch(0.74 0.03 272);
+  --accent: oklch(0.72 0.15 305);
+  --accent-foreground: oklch(0.15 0.04 275);
+  --destructive: oklch(0.7 0.19 22);
+  --border: oklch(0.8 0.06 275 / 13%);
+  --input: oklch(0.8 0.06 275 / 18%);
+  --ring: oklch(0.76 0.12 275);
+  --grc: oklch(0.78 0.11 240);
+  --human: oklch(0.76 0.14 318);
+  --secops: oklch(0.82 0.1 190);
+  --radius: 0.875rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  ::selection {
+    background: oklch(0.72 0.15 305 / 35%);
+  }
+}
+
+.text-gradient {
+  background-image: linear-gradient(110deg, var(--foreground) 10%, var(--primary) 55%, var(--accent) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid-fade {
+  background-image:
+    linear-gradient(to right, oklch(0.8 0.08 275 / 6%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.8 0.08 275 / 6%) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 70%);
+}
+
+/* Gradient hairline border that follows border-radius; set --edge to tint it. */
+.edge {
+  position: relative;
+  isolation: isolate;
+}
+.edge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    150deg,
+    color-mix(in oklch, var(--edge, var(--primary)) 70%, transparent),
+    oklch(0.8 0.06 275 / 10%) 40%,
+    oklch(0.8 0.06 275 / 6%) 70%,
+    color-mix(in oklch, var(--edge, var(--primary)) 35%, transparent)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-dot {
+  box-shadow:
+    0 0 10px 2px color-mix(in oklch, currentColor 60%, transparent),
+    0 0 24px 6px color-mix(in oklch, currentColor 25%, transparent);
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: var(--o, 0.6);
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+.animate-orbit {
+  animation: orbit var(--duration, 40s) linear infinite;
+}
+.animate-orbit-reverse {
+  animation: orbit var(--duration, 40s) linear infinite reverse;
+}
+.animate-twinkle {
+  animation: twinkle var(--t, 5s) ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.animate-drift {
+  animation: drift 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-orbit,
+  .animate-orbit-reverse,
+  .animate-twinkle,
+  .animate-drift {
+    animation: none;
+  }
+}
