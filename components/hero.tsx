@@ -72,7 +72,7 @@ export function Hero() {
               <ArrowDown className="size-4" aria-hidden="true" />
             </a>
             <a
-              href="mailto:hirejessicakyle@gmail.com?subject=R%C3%A9sum%C3%A9%20Request"
+              href="mailto:hirejessicakyle@gmail.com"
               className="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
             >
               <FileText className="size-4" aria-hidden="true" />
