@@ -89,7 +89,7 @@ export function Projects() {
                 <p className="mt-4 leading-relaxed text-foreground/85">{project.summary}</p>
 
                 <ul className="mt-5 flex flex-col gap-2 text-sm text-muted-foreground">
-                  {project.approach.map((step) => (
+                  {(project.approach ?? []).map((step) => (
                     <li key={step} className="flex gap-3">
                       <span className={`mt-2 h-px w-3 shrink-0 ${style.bg}`} aria-hidden="true" />
                       {step}
@@ -99,12 +99,12 @@ export function Projects() {
 
                 <div className="mt-6 border-t border-border/60 pt-5">
                   <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Deliverables</p>
-                  <p className="mt-2 text-sm">{project.deliverables.join(' · ')}</p>
+                  <p className="mt-2 text-sm">{(project.deliverables ?? []).join(' · ')}</p>
                 </div>
 
                 <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-6">
                   <ul className="flex flex-wrap gap-2" aria-label="Tools and frameworks">
-                    {project.tools.map((tool) => (
+                    {(project.tools ?? []).map((tool) => (
                       <li key={tool} className="rounded-md bg-secondary/70 px-2.5 py-1 font-mono text-xs text-muted-foreground">
                         {tool}
                       </li>
