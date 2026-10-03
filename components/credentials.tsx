@@ -26,6 +26,8 @@ export function Credentials() {
                   />
                   <p className="text-sm text-muted-foreground">{item.degree}</p>
                   <p className="mt-1 text-xl font-semibold tracking-tight">{item.field}</p>
+                  {item.school && <p className="mt-1 text-sm text-muted-foreground">{item.school}</p>}
+                  {item.honors && <p className="mt-1 text-sm text-primary">{item.honors}</p>}
                   <span
                     className={`mt-3 inline-flex rounded-full px-3 py-1 font-mono text-xs ${
                       inProgress ? 'border border-accent/40 bg-accent/10 text-accent' : 'border border-border text-muted-foreground'
@@ -57,6 +59,7 @@ export function Credentials() {
                   <span className="h-10 w-px bg-border" aria-hidden="true" />
                   <div className="min-w-0">
                     <p className="font-medium leading-snug">{cert.name}</p>
+                    <p className="mt-1 text-sm text-foreground/80">{cert.issuer}</p>
                     <p className="mt-1 text-sm text-muted-foreground">{`Earned ${cert.year}`}</p>
                   </div>
                 </li>

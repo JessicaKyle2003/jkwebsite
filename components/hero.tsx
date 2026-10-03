@@ -48,7 +48,7 @@ export function Hero() {
           <h1 id="hero-title" className="mt-8 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
             <span className="text-gradient">{profile.name}</span>
           </h1>
-          <p className="mt-4 text-xl font-medium text-foreground/90 md:text-2xl">{profile.title}</p>
+          <p className="mt-4 text-xl font-medium text-foreground/90 md:text-2xl">{profile.subtitle}</p>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">{profile.summary}</p>
 
           <ul className="mt-8 flex flex-wrap gap-2" aria-label="Core focus areas">

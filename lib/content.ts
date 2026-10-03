@@ -2,6 +2,7 @@ export const profile = {
   name: 'Jessica Kyle',
   initials: 'JK',
   title: 'Cybersecurity Professional',
+  subtitle: 'GRC Analyst | Cyber Psychology & Human Risk',
   tagline: 'GRC & Cybersecurity Risk Management · Cyber Psychology & Human Factors · Security Operations (SOC)',
   summary: 'I approach cybersecurity as a system of policies, people, and technology, with a focus across GRC and cybersecurity risk management, cyber psychology and human factors, and security operations.',
   location: 'Benton Harbor, Michigan',
@@ -20,7 +21,7 @@ export const pillars: { id: PillarId; label: string; short: string; question: st
   { id: 'secops', label: 'Security Operations (SOC)', short: 'SOC', question: 'How do operational controls support organizational security?', description: 'A focused security operations portfolio grounded in readiness assessment and control evidence.', focus: ['SOC 2 Type II Readiness', 'Trust Services Criteria', 'Common Criteria CC1–CC9'], count: 1 },
 ]
 
-export type Project = { title: string; pillar: PillarId; type: string; summary: string; href: string; url?: string; documentLinks?: { label: string; href: string }[]; approach?: string[]; deliverables?: string[]; tools?: string[]; caseStudyUrl?: string; repoUrl?: string }
+export type Project = { title: string; pillar: PillarId; type: string; summary: string; href: string; url?: string; documentLinks?: { label: string; href: string }[]; approach?: string[]; deliverables?: string[]; tools?: string[]; caseStudyUrl?: string; repoUrl?: string; label?: string; stats?: { value: string; label: string }[]; chipHeading?: string; chips?: string[]; note?: string; tags?: string[] }
 const githubBase = 'https://github.com/JessicaKyle2003/'
 const grc = 'GRC-Portfolio/blob/main/'
 const psy = 'Cyber-Psychology-Portfolio/blob/main/'
@@ -31,10 +32,55 @@ export const projects: Project[] = [
   { title: '01.03 PCI DSS v4.0 Compliance Assessment', pillar: 'grc', type: 'Assessment for a fictional healthcare organization', summary: 'Conducted a comprehensive PCI DSS v4.0 compliance assessment, evaluating all 12 requirements, identifying critical gaps, and developing a prioritized remediation roadmap.', href: githubBase + grc + 'PCI%20DSS%20COMPLIANCE%20GRC%20project.pdf' },
   { title: '01.04 NIST AI Risk Management Framework (AI RMF) — NexaHealth', pillar: 'grc', type: 'AI governance and risk project', summary: 'Applied the GOVERN, MAP, MEASURE, and MANAGE functions to a healthcare AI diagnostics system, identifying AI-specific risks and building a risk treatment plan.', href: githubBase + grc + 'NIST%20AI%20RMF%20Project_GRC.pdf' },
   { title: '01.05 Dark Patterns & Consent', pillar: 'grc', type: 'Applied Research Project', summary: 'Investigated how dark patterns and cognitive biases influence healthcare privacy decisions, identifying human-centered privacy and regulatory risks.', href: githubBase + psy + 'Dark%20Patterns%20%26%20Consent.project.pdf' },
-  { title: '01.06 Incident Response Plan', pillar: 'grc', type: 'GRC project', summary: 'Developed an incident response plan for structured preparation, response, recovery, and communication.', href: githubBase + grc + 'Cyber%20security%20Project_Incident%20Response%20Plan.pdf' },
-  { title: '01.07 HIPAA Framework Project', pillar: 'grc', type: 'Compliance framework project', summary: 'Applied the HIPAA framework to healthcare security and privacy requirements.', href: githubBase + grc + 'HIPAA%20FRAMEWORK%20PROJECT.pdf' },
-  { title: '01.08 NIST Framework', pillar: 'grc', type: 'Cybersecurity framework project', summary: 'Mapped organizational security practices to the NIST Cybersecurity Framework.', href: githubBase + grc + 'NIST%20FRAMEWORK.pdf' },
-  { title: '01.09 Security Risk Assessment Report', pillar: 'grc', type: 'Risk assessment project', summary: 'Documented security risks, findings, and prioritized treatment recommendations.', href: githubBase + grc + 'Security%20Risk%20Assessment%20Report_cyber%20Project.pdf' },
+  {
+    title: '01.06 Incident Response Plan — Elite Healthcare',
+    pillar: 'grc',
+    type: 'Incident response project',
+    label: 'Fictional organization',
+    summary: 'Built a six-phase incident response plan for a HIPAA data breach scenario in which a phishing attack compromised staff credentials and exposed protected health information (PHI) for approximately 450 patients. Defined a five-role incident response team, step-by-step procedures from preparation through lessons learned, and a HIPAA breach notification matrix covering patient, HHS, and media reporting deadlines.',
+    stats: [{ value: '6', label: 'Response phases' }, { value: '5', label: 'Response team roles' }, { value: '450', label: 'Patient records in breach scenario' }],
+    chipHeading: 'Response phases',
+    chips: ['Preparation', 'Identification', 'Containment', 'Eradication', 'Recovery', 'Lessons Learned'],
+    note: 'Scenario uses a fictional healthcare organization.',
+    tags: ['Incident response', 'HIPAA breach notification', 'Phishing', 'PHI'],
+    href: githubBase + grc + 'Cyber%20security%20Project_Incident%20Response%20Plan.pdf',
+  },
+  {
+    title: '01.07 HIPAA Compliance Assessment — Elite Star Medical Clinic',
+    pillar: 'grc',
+    type: 'Compliance assessment project',
+    label: 'Fictional organization',
+    summary: 'Assessed all four HIPAA rules, identified six critical compliance gaps, applied administrative, physical, and technical safeguards, and produced a four-part breach notification plan and a 10-item remediation checklist.',
+    stats: [{ value: '4', label: 'HIPAA rules assessed' }, { value: '6', label: 'Critical gaps identified' }, { value: '10', label: 'Remediation checklist items' }],
+    note: 'Assessment conducted for a fictional healthcare organization.',
+    tags: ['HIPAA', 'Gap analysis', 'Breach notification', 'Healthcare'],
+    href: githubBase + grc + 'HIPAA%20FRAMEWORK%20PROJECT.pdf',
+  },
+  {
+    title: '01.08 NIST Cybersecurity Framework (CSF) — Healthcare Scenario',
+    pillar: 'grc',
+    type: 'Cybersecurity framework project',
+    label: 'Simulated project',
+    summary: 'Applied all five NIST CSF functions to a simulated medical clinic. Mapped 12 assets, implemented six security controls including MFA and AES-256 encryption, designed SIEM-based detection, and built a ransomware incident response and HIPAA-compliant recovery plan.',
+    stats: [{ value: '5', label: 'CSF functions applied' }, { value: '12', label: 'Assets mapped' }, { value: '6', label: 'Security controls implemented' }],
+    chipHeading: 'CSF functions',
+    chips: ['Identify', 'Protect', 'Detect', 'Respond', 'Recover'],
+    tags: ['NIST CSF', 'Incident response', 'SIEM', 'Ransomware recovery'],
+    href: githubBase + grc + 'NIST%20FRAMEWORK.pdf',
+  },
+  {
+    title: '01.09 Security Risk Assessment Report — Elite Healthcare',
+    pillar: 'grc',
+    type: 'Risk assessment project',
+    label: 'Fictional organization',
+    summary: 'Conducted a qualitative security risk assessment for a 20-employee outpatient clinic that stores and processes PHI. Built a risk register scoring five threats by likelihood and impact, mapped each risk to NIST Cybersecurity Framework controls, and delivered a prioritized remediation roadmap to reduce exposure and support HIPAA compliance.',
+    stats: [{ value: '5', label: 'Threats assessed' }, { value: '3', label: 'Critical risks identified' }, { value: '5', label: 'NIST CSF functions applied' }],
+    chipHeading: 'Threats assessed',
+    chips: ['Phishing', 'Unauthorized access', 'Ransomware', 'Unencrypted devices', 'Third-party vendor breach'],
+    note: 'Assessment conducted for a fictional healthcare organization.',
+    tags: ['Risk register', 'NIST CSF', 'HIPAA', 'Risk assessment'],
+    href: githubBase + grc + 'Security%20Risk%20Assessment%20Report_cyber%20Project.pdf',
+  },
   { title: '02.01 AI Companion Attachment and Disclosure Risk', pillar: 'human', type: 'Cyber psychology research project', summary: 'Researched how repeated interactions with AI companions may influence emotional trust, attachment, and willingness to disclose information.', href: githubBase + psy + 'AI%20Companion%20Attachment%20%26%20Disclosure.psy.pdf' },
   { title: '02.02 Deepfake Trust & Remote Work', pillar: 'human', type: 'Applied Research Project', summary: 'Built a psychological framework examining why deepfake-enabled fraud can succeed in remote work settings.', href: githubBase + psy + 'Deepfake%20Trust%20%26%20Remote%20Work%20project.psy.pdf' },
   { title: '02.03 Social Media & Cybersecurity Behavioral Research Report', pillar: 'human', type: 'Applied Research Project', summary: 'Analyzed behavioral drivers of social media security risk and translated them into risk-reduction recommendations.', href: githubBase + psy + 'Social%20Media%20%26%20Cybersecurity%20Behavior%20project.psy.pdf' },
@@ -50,8 +96,84 @@ export const skills = [
   { pillar: 'human' as PillarId, items: ['Cyber Psychology & Human Factors', 'Security Awareness', 'Social Engineering'] },
   { pillar: 'secops' as PillarId, items: ['Security Operations / SOC'] },
 ]
-export const education: { degree: string; field: string; status: 'Completed' | 'In Progress' }[] = [{ degree: "Associate's", field: 'Cybersecurity', status: 'Completed' }, { degree: "Bachelor's", field: 'Psychology', status: 'In Progress' }]
-export const certifications = [{ name: 'Security Operations Center Specialist (SOC)', year: '2023', pillar: 'secops' as PillarId }, { name: 'ISO/IEC 42001 AI Governance', year: '2026', pillar: 'grc' as PillarId }, { name: 'HIPAA Compliance Training Program', year: '2026', pillar: 'grc' as PillarId }]
+export const education: { degree: string; field: string; status: 'Completed' | 'In Progress'; school?: string; honors?: string }[] = [
+  { degree: "Associate's", field: 'Cybersecurity', status: 'Completed', school: 'Ivy Tech Community College · 2025', honors: "Dean's List, Summer 2022 & 2023" },
+  { degree: "Bachelor's", field: 'Psychology', status: 'In Progress', school: 'Western Governors University' },
+]
+export const certifications = [
+  { name: 'Security Operations Center Specialist (SOC)', issuer: 'Ivy Tech Community College', year: '2023', pillar: 'secops' as PillarId },
+  { name: 'ISO/IEC 42001 AI Governance', issuer: 'CertiProf', year: '2026', pillar: 'grc' as PillarId },
+  { name: 'HIPAA Compliance Training Program', issuer: 'HIPAA Training US', year: '2026', pillar: 'grc' as PillarId },
+]
+
+export const about = {
+  heading: 'From the production floor to policy.',
+  body: 'My path into cybersecurity started on the manufacturing floor, where I was promoted from press operator to quality assurance technician and learned to inspect against standards, document everything, and catch failures before they reached the customer. That same discipline drives my GRC work today. A pre-law background taught me to read regulations closely and turn them into clear requirements, and my study of psychology shows me the part most frameworks miss: people. I build compliance work that accounts for how humans actually think, click, and decide.',
+}
+
+export const experience: { role: string; company: string; period: string; bullets: string[] }[] = [
+  {
+    role: 'IT Consultant / Founder',
+    company: 'JVK Enterprise Holding Solutions',
+    period: '2023 – 2025',
+    bullets: [
+      'Delivered freelance IT support, including endpoint protection, device configuration, and troubleshooting across Windows 10/11, macOS, iOS, and Android environments.',
+      'Maintained detailed service documentation for all client engagements, directly applicable to GRC audit trail and record-keeping practices.',
+    ],
+  },
+  {
+    role: 'Customer Service / Call Center (Billing Department)',
+    company: 'Continuum Global Solutions',
+    period: '2024',
+    bullets: [
+      'Resolved billing account issues while maintaining 90%+ customer satisfaction, and ensured data accuracy through precise transaction processing.',
+      'Collaborated across functions within structured escalation procedures, paralleling compliance workflows and stakeholder communication.',
+    ],
+  },
+  {
+    role: 'Virtual Cybersecurity Internship (Job Simulation)',
+    company: 'Mastercard via Forage',
+    period: '2024',
+    bullets: [
+      'Simulated SOC operations by providing technical support and troubleshooting IT issues in a virtual help desk environment.',
+      'Utilized help desk software and remote solutions to resolve technical problems efficiently.',
+    ],
+  },
+  {
+    role: 'Virtual Cybersecurity Internship (Job Simulation)',
+    company: 'AIG Shields Up via Forage',
+    period: '2024',
+    bullets: [
+      'Automated cybersecurity processes using Python scripts to enhance system functionality.',
+      'Conducted simulated cybersecurity threat analysis and ethical hacking exercises.',
+    ],
+  },
+  {
+    role: 'Press Operator / Trainer (Automotive Parts)',
+    company: 'Dawson Manufacturing',
+    period: '2017 – 2021',
+    bullets: [
+      'Produced 15,000+ parts with detailed production metrics, experience that directly parallels risk tracking and GRC reporting.',
+      'Trained 90% of new hires, demonstrating the ability to communicate technical processes, which maps directly to security awareness training delivery.',
+    ],
+  },
+  {
+    role: 'Inventory Specialist / Shipping & Receiving',
+    company: 'Colson Group USA',
+    period: '2016 – 2017',
+    bullets: [
+      'Maintained data integrity across inventory records for 10,000+ parts, building foundational skills in compliance record-keeping and audit evidence management.',
+    ],
+  },
+  {
+    role: 'Quality Assurance Technician / Operator (Automotive Parts)',
+    company: 'Jvis Manufacturing',
+    period: '2013 – 2014',
+    bullets: [
+      'Promoted to QA Technician. Inspected 10,000+ parts, achieving a 96% pass rate, using QA methodology directly transferable to GRC control testing workflows.',
+    ],
+  },
+]
 export const contactLocation = 'Benton Harbor, Michigan'
 export const resumeRequestEmail = 'hirejessicakyle@gmail.com'
 export const socialLinks = [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/hirejessicakyle/' }, { label: 'GitHub', href: 'https://github.com/JessicaKyle2003' }]

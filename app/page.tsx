@@ -3,6 +3,8 @@ import { Starfield } from '@/components/starfield'
 import { Hero } from '@/components/hero'
 import { Pillars } from '@/components/pillars'
 import { Projects } from '@/components/projects'
+import { About } from '@/components/about'
+import { Experience } from '@/components/experience'
 import { Skills } from '@/components/skills'
 import { Credentials } from '@/components/credentials'
 import { Resume } from '@/components/resume'
@@ -24,8 +26,12 @@ export default function Page() {
       <main id="main">
         <Hero />
         <SectionDivider />
+        <About />
+        <SectionDivider />
         <Pillars />
         <Projects />
+        <SectionDivider />
+        <Experience />
         <SectionDivider />
         <Skills />
         <SectionDivider />

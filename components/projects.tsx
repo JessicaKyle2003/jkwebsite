@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, type CSSProperties } from 'react'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Info } from 'lucide-react'
 import { pillars, projects, type PillarId } from '@/lib/content'
 import { pillarStyles } from '@/lib/pillar-styles'
 import { GithubIcon } from './brand-icons'
@@ -91,7 +91,53 @@ export function Projects() {
                   </a>
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">{project.type}</p>
+                {project.label && (
+                  <span className="mt-3 inline-flex w-fit rounded-full border border-accent/40 bg-accent/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                    {project.label}
+                  </span>
+                )}
                 <p className="mt-4 leading-relaxed text-foreground/85">{project.summary}</p>
+
+                {project.stats && (
+                  <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-border/60 py-5">
+                    {project.stats.map((stat) => (
+                      <div key={stat.label} className="flex flex-col-reverse gap-1">
+                        <dt className="text-xs leading-snug text-muted-foreground">{stat.label}</dt>
+                        <dd className={`font-mono text-2xl font-light tabular-nums ${style.text}`}>{stat.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+
+                {project.chips && (
+                  <div className="mt-5">
+                    {project.chipHeading && (
+                      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{project.chipHeading}</p>
+                    )}
+                    <ul className="mt-3 flex flex-wrap gap-2" aria-label={project.chipHeading}>
+                      {project.chips.map((chip) => (
+                        <li key={chip} className={`rounded-full border px-3 py-1 text-xs ${style.border} ${style.soft}`}>
+                          {chip}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.note && (
+                  <p className="mt-5 flex items-start gap-2 rounded-xl border border-border/60 bg-secondary/40 px-4 py-3 text-xs text-muted-foreground">
+                    <Info className="mt-px size-3.5 shrink-0" aria-hidden="true" />
+                    {project.note}
+                  </p>
+                )}
+
+                {project.tags && (
+                  <ul className="mt-5 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-muted-foreground" aria-label="Tags">
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{`#${tag}`}</li>
+                    ))}
+                  </ul>
+                )}
 
                 {project.documentLinks && (
                   <ul className="mt-5 flex flex-col gap-2 text-sm text-muted-foreground" aria-label="Project documents">

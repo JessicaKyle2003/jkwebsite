@@ -5,8 +5,10 @@ import { FileText, Menu, X } from 'lucide-react'
 import { profile, resumeRequestHref } from '@/lib/content'
 
 const links = [
+  { href: '#about', label: 'About' },
   { href: '#pillars', label: 'Focus' },
   { href: '#projects', label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
   { href: '#skills', label: 'Knowledge' },
   { href: '#credentials', label: 'Credentials' },
   { href: '#contact', label: 'Contact' },

@@ -27,7 +27,7 @@ export function Resume() {
               <p className="mt-3 max-w-lg text-pretty leading-relaxed text-muted-foreground">
                 {resumeHref
                   ? 'View or download my résumé for a complete summary of my education, certifications, and skills.'
-                  : 'My résumé is available on request. Send me a note and I will share a copy.'}
+                  : "Send me the role you're hiring for and I'll share a résumé tailored to it."}
               </p>
             </div>
           </div>
