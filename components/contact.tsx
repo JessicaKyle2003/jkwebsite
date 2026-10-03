@@ -1,11 +1,11 @@
 import { ArrowUpRight, Mail, MapPin } from 'lucide-react'
-import { profile } from '@/lib/content'
+import { profile, profileEmail, profileGithub, profileLinkedin } from '@/lib/content'
 import { GithubIcon, LinkedinIcon } from './brand-icons'
 
 const channels = [
-  { label: 'Email', value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
-  { label: 'LinkedIn', value: 'Connect on LinkedIn', href: profile.linkedin, icon: LinkedinIcon },
-  { label: 'GitHub', value: 'View repositories', href: profile.github, icon: GithubIcon },
+  { label: 'Email', value: profileEmail, href: profileEmail ? `mailto:${profileEmail}` : undefined, icon: Mail },
+  { label: 'LinkedIn', value: 'Connect on LinkedIn', href: profileLinkedin, icon: LinkedinIcon },
+  { label: 'GitHub', value: 'View repositories', href: profileGithub, icon: GithubIcon },
 ]
 
 export function Contact() {
@@ -35,11 +35,12 @@ export function Contact() {
 
         <ul className="mt-12 grid gap-4 text-left sm:grid-cols-3">
           {channels.map(({ label, value, href, icon: Icon }) => {
-            const external = href.startsWith('http')
+            const safeHref = href ?? ''
+            const external = safeHref.startsWith('http')
             return (
               <li key={label}>
                 <a
-                  href={href}
+                  href={safeHref || undefined}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="edge group flex h-full items-center gap-4 rounded-2xl bg-card/50 p-5 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-card/80"
                 >
