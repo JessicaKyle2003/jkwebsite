@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { ArrowDown, FileText, MapPin, ShieldCheck } from 'lucide-react'
-import { pillars, profile } from '@/lib/content'
+import { pillars, profile, resumeRequestHref } from '@/lib/content'
 import { pillarStyles } from '@/lib/pillar-styles'
 
 const orbits = [
@@ -72,7 +72,9 @@ export function Hero() {
               <ArrowDown className="size-4" aria-hidden="true" />
             </a>
             <a
-              href="mailto:hirejessicakyle@gmail.com"
+              href={resumeRequestHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
             >
               <FileText className="size-4" aria-hidden="true" />

@@ -11,8 +11,8 @@ export const profile = {
 }
 
 export type PillarId = 'grc' | 'human' | 'secops'
-export const emailHref = 'mailto:hirejessicakyle@gmail.com'
-export const resumeRequestHref = 'mailto:hirejessicakyle@gmail.com'
+export const emailHref = "https://mail.google.com/mail/?view=cm&fs=1&to=hirejessicakyle@gmail.com"
+export const resumeRequestHref = "https://mail.google.com/mail/?view=cm&fs=1&to=hirejessicakyle@gmail.com&su=Resume%20Request"
 
 export const pillars: { id: PillarId; label: string; short: string; question: string; description: string; focus: string[]; count: number }[] = [
   { id: 'grc', label: 'GRC & Cybersecurity Risk Management', short: 'GRC & Risk', question: 'How do policies and governance turn risk into action?', description: 'A focus on privacy, information security, compliance, AI governance, and human-centered risk.', focus: ['ISO/IEC 27001', 'ISO/IEC 42001 AI Governance', 'PCI DSS', 'NIST AI RMF', 'SOC 2'], count: 9 },
@@ -242,7 +242,7 @@ export const displayCounts = pillarProjectCounts
 export const site = content
 
 // compatibility
-export const email = 'hirejessicakyle@gmail.com'
+export const email = "hirejessicakyle@gmail.com"
 
 // compatibility
 export const linkedIn = profileLinkedin

@@ -1,5 +1,5 @@
 import { Download, ExternalLink, FileText, Mail } from 'lucide-react'
-import { profile } from '@/lib/content'
+import { profile, resumeRequestHref } from '@/lib/content'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
@@ -56,7 +56,9 @@ export function Resume() {
               </>
             ) : (
               <a
-                href="mailto:hirejessicakyle@gmail.com"
+                href={resumeRequestHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-3.5 font-semibold text-primary-foreground shadow-[0_0_30px_-6px] shadow-primary/70 transition-transform hover:-translate-y-0.5"
               >
                 <Mail className="size-5" aria-hidden="true" />

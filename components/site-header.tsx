@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { FileText, Menu, X } from 'lucide-react'
-import { profile } from '@/lib/content'
+import { profile, resumeRequestHref } from '@/lib/content'
 
 const links = [
   { href: '#pillars', label: 'Focus' },
@@ -41,7 +41,9 @@ export function SiteHeader() {
         </nav>
 
         <a
-          href="mailto:hirejessicakyle@gmail.com"
+          href={resumeRequestHref}
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2 text-sm font-semibold text-primary-foreground shadow-[0_0_24px_-4px] shadow-primary/60 transition-transform hover:-translate-y-0.5 md:inline-flex"
         >
           <FileText className="size-4" aria-hidden="true" />
@@ -76,7 +78,9 @@ export function SiteHeader() {
             ))}
             <li className="pt-3">
               <a
-                href="mailto:hirejessicakyle@gmail.com"
+                href={resumeRequestHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-3 font-semibold text-primary-foreground"
               >
                 <FileText className="size-4" aria-hidden="true" />
